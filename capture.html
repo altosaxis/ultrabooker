@@ -1,0 +1,44 @@
+
+
+### Code Snippets'''
+
+
+
+```html
+<!-- popup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capture Extension</title>
+    <script src="popup.js"></script>
+</head>
+<body>
+    <h1>Capture Webpage</h1>
+    <button id="captureButton">Capture Page</button>
+    <script>
+        document.getElementById('captureButton').addEventListener('click', () => {
+            chrome.tabs.captureVisibleTab(null, {format: 'jpeg', quality: 100}, (dataUrl) => {
+                console.log('Captured data:', dataUrl);
+                // Save dataUrl or handle further processing here
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+```javascript
+// popup.js
+// Example of capturing and saving a webpage as JPEG
+
+document.getElementById('captureButton').addEventListener('click', () => {
+    chrome.tabs.captureVisibleTab(null, {format: 'jpeg', quality: 100}, (dataUrl) => {
+        console.log('Captured data:', dataUrl);
+        // Save dataUrl or handle further processing here
+    });
+});
+```
+
+This is a basic outline to get started. need to implement error handling, user authentication (if accessing external services like OneNote), and more robust logic for settings management and capture formats. 
+Use Edge's developer documentation and resources to delve deeper into each aspect as needed.
